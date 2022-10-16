@@ -6,17 +6,17 @@ hide_table_of_contents: false
 # How to use BNB Smart Chain (BSC) on imToken? 
 An introduction on how to start with using BSC on the imToken wallet
 
-## How to download the imToken wallet?
-1.To get started, download imToken wallet via our official website [token.im](https://token.im/), the Apple App Store or Google Play.
+## How to Download the imToken Wallet?
+1. To get started, download imToken wallet via our official website [token.im](https://token.im/), the Apple App Store or Google Play.
 
-2.Android phone users best download via Google Play or the official website.
+2. Android phone users best download via Google Play or the official website.
 
-3.Make sure to download the official, genuine App, since there are scammers out there providing fake apps.
+3. Make sure to download the official, genuine App, since there are scammers out there providing fake apps.
 
-4.Apple users can use the App Store. Here as well, please double check the app developer being IMTOKEN PTE.LTD. Be aware of scam apps.
+4. Apple users can use the App Store. Here as well, please double check the app developer being IMTOKEN PTE.LTD. Be aware of scam apps.
 ![img](assets/10.png)
 
-## How to create an imToken identity wallet?
+## How to Create an imToken Identity Wallet?
 1. Open imToken, click "Create Identity" and click to agree to the terms of service.
 
 2. Fill in your identity name and wallet password. Next, click "Create", copy the backup mnemonic phrase with pen and paper and keep it in a safe place. Confirm the mnemonic words in order again and click "Next" to successfully create a wallet.
@@ -26,7 +26,7 @@ BSC is the abbreviation of BNB Smart Chain. The chain adopts PoSA (Proof of Stak
  
 Since BSC is EMV-compatible, developers can easily deploy smart contracts and build DApps on the chain. Compared with Ethereum, BSC has lower gas fees and faster transaction settlement with lower security guarantees.
  
-With imToken wallet we do not only support BSC DApps and watching token balances but also the DeFi Portfolio feature, providing a holistic BSC experience.
+With imToken wallet, we do not only support BSC DApps and watching token balances but also the DeFi Portfolio feature, providing a holistic BSC experience.
 
 
 ## How to start using BSC in imToken?
@@ -37,7 +37,7 @@ After the switch is successful, you can transfer and collect funds on the BSC ch
 
 ![img](assets/1.png)
  
-### Receiving a payment via BSC on imToken
+### Receiving a Payment via BSC on imToken
 Click "Receipt", copy the address or payment code and send it to the other party.
 
 ![img](assets/2.png)
@@ -48,13 +48,13 @@ Click "Transfer", enter the payment address and amount, and then click "Next" to
 
 ![img](assets/3.png)
 
-### Ecosystem applications
+### Ecosystem Applications
 Click on "Ecosystem Applications" on the asset homepage to view and experience recent popular DApps on the BSC chain.
 
 ![img](assets/4.png)
 
 
-###How to send funds from Binance to your imToken Wallet
+### How to Send Funds from Binance to your imToken Wallet
 
 To withdraw BSC assets from Binance to imToken, you can follow the steps below. We use the BNB token as an example.
 
@@ -85,8 +85,6 @@ Select "BEP20 (BSC)" in "Network" and click to copy the BNB recharge address.
 On the asset page, click BNB to enter the transfer page, click "Transfer", paste Binance's recharge address, enter the withdrawal amount, and click "Next" to complete the transfer after paying the miner's fee.
 
 ![img](assets/2.png)
-
-
 
 
 Learn more: https://token.im

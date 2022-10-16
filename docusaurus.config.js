@@ -7,18 +7,17 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'BNB Chain Documentation',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://github.com/RumeelHussainbnb/beta_BSC_Docs',
   baseUrl: '/',
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
-  organizationName: 'BNB Chain', // Usually your GitHub org/user name.
-  //projectName: 'binance documentation', // Usually your repo name.
-    
-  /*i18n: {
-      defaultLocale: 'en',
-      locales: ['en', 'fr', 'zh'],
-    },*/
+  favicon: 'img/icon/favicon.ico',
+  organizationName: 'RumeelHussainbnb', 
+  projectName: 'beta_BSC_Docs/docs', 
+  deploymentBranch: 'gh-pages',
+ 
+  
+  plugins: [require.resolve("docusaurus-plugin-image-zoom")],
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -26,14 +25,13 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl: 'https://github.com/RumeelHussainbnb/beta_BSC_Docs/blob/master/docs',
+          editUrl: 'https://github.com/RumeelHussainbnb/beta_BSC_Docs/blob/master/',
+          editCurrentVersion: true,
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
           editUrl:
-            'https://www.bnbchain.world/en/blog/',
+            'https://www.bnbchain.org/en/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -46,14 +44,18 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     
     ({
-      /*announcementBar: {
-        id: 'support_us',
-        content:
-          'Binance Chain and Binance Smart Chain are entering a new development era with a new brand. The documentations and the web pages are under reconstruction.',
-        backgroundColor: '#fafbfc',
-        textColor: '#091E42',
-        isCloseable: false,
-      },*/
+      
+      zoom: {
+        selector: '.markdown :not(em) > img',
+        config: {
+          // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
+          background: {
+            light: 'rgb(255, 255, 255)',
+            dark: 'rgb(50, 50, 50)'
+          }
+        }
+      },
+      
       colorMode: {
         defaultMode: 'light',
       },
@@ -91,7 +93,7 @@ const config = {
               },
               {
                 label: 'Blog',
-                href: 'https://www.bnbchain.world/en/blog/',
+                href: 'https://www.bnbchain.org/en/blog/',
               },
               {
                 label: 'GitHub',
@@ -103,7 +105,7 @@ const config = {
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/binance',
+                href: 'https://twitter.com/BNBCHAIN',
               },
               {
                 label: 'Telegram',

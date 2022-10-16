@@ -6,11 +6,11 @@ sidebar_position: 2
  # Upgradeable BEP20 Contracts on BSC
 
 ## What are Upgradeable Contracts?
-Smart contracts in EVM are designed to be immutable. Once you create them there is no way to modify them, effectively acting as an unbreakable contract among participants.What do I do if I want to expand the functionality of my contracts? What if there is a bug in the contract that leads to a loss of funds? What if a vulnerability in the Solidity compiler is discovered?
+Smart contracts in EVM are designed to be immutable. Once you create them there is no way to modify them, effectively acting as an unbreakable contract among participants. What do I do if I want to expand the functionality of my contracts? What if there is a bug in the contract that leads to a loss of funds? What if a vulnerability in the Solidity compiler is discovered?
 Here’s what you’d need to do to fix a bug in a contract you cannot upgrade:
 
 - Deploy a new version of the contract
-- Manually migrate all state from the old one contract to the new one (which can be very expensive in terms of gas fees!)
+- Manually migrate all the states from the old one contract to the new one (which can be very expensive in terms of gas fees!)
 - Update all contracts that interacted with the old contract to use the address of the new one
 - Reach out to all your users and convince them to start using the new deployment (and handle both contracts being used simultaneously, as users are slow to migrate)
 
@@ -18,7 +18,7 @@ There are several approaches that allow us to make some changes to smart contrac
 
 **Separate logic and data**
 
-By using this approach, data will be read from a designated data contract directly. This is a rather common approach that is also used outside of Solidity. One of the main disadvantages of this approach is that you cannot change the interface of contracts external to the entire system, and you cannot add or remove functions.
+By using this approach, data will be read from a designated data contract directly. This is a relatively common approach that is also used outside of Solidity. One of the main disadvantages of this approach is that you cannot change the interface of contracts external to the entire system, and you cannot add or remove functions.
 
 **Delegatecall Proxy**
 
@@ -43,7 +43,7 @@ pragma solidity ^0.6.0;
 
 ```
 OpenZeppelin Upgrades provides an Initializable base contract that has an initializer modifier to prevent a contract from being *initialized* multiple times:
-https://github.com/binance-chain/canonical-upgradeable-bep20/blob/47ed7a710e6e86bdc85f2118bf63fc892e3b7716/contracts/BEP20TokenImplementation.sol#L37
+https://github.com/bnb-chain/canonical-upgradeable-bep20/blob/47ed7a710e6e86bdc85f2118bf63fc892e3b7716/contracts/BEP20TokenImplementation.sol#L37
 
 ```javascript
  /**
@@ -60,7 +60,7 @@ function initialize(string memory name, string memory symbol, uint8 decimals, ui
 
 ```
 BEP20 contract initializes the token’s name, symbol, and decimals in its constructor. You should not use these contracts in your BEP20 Upgrades contract. , make sure to use the `upgradableBEP20implementation` that has been modified to use initializers instead of constructors.
-https://github.com/binance-chain/bsc-genesis-contract/blob/42922472b43397fbca9d0c84c7f72fbfaf39efc3/contracts/bep20_template/BEP20Token.template#L351
+https://github.com/bnb-chain/bsc-genesis-contract/blob/42922472b43397fbca9d0c84c7f72fbfaf39efc3/contracts/bep20_template/BEP20Token.template#L351
 
 ```javascript
 constructor() public {
@@ -102,7 +102,7 @@ npx truffle init
 ### Create upgradeable contract
 This example token has a fixed supply that is minted to the deployer of the contract.
 
-https://github.com/binance-chain/canonical-upgradeable-bep20/blob/master/contracts/BEP20TokenImplementation.sol
+https://github.com/bnb-chain/canonical-upgradeable-bep20/blob/master/contracts/BEP20TokenImplementation.sol
 
 ```javascript
 const BEP20TokenImplementation = artifacts.require("BEP20TokenImplementation");const BEP20TokenFactory = artifacts.require("BEP20TokenFactory");

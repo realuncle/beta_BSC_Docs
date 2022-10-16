@@ -9,24 +9,24 @@ hide_table_of_contents: false
 ## Abstract
 We target to design the consensus engine of BSC(BNB Smart Chain) to achieve the following goals:
 
-1. Wait a few blocks to confirm(should be less than Ethereum 1.0), better no fork in most cases.
+1. Wait for a few blocks to confirm (should be less than Ethereum 1.0), better no fork in most cases.
 2. Blocking time should be shorter than Ethereum 1.0, i.e. 5 seconds or less.
 3. No inflation, the block reward is transaction gas fees.
 4. As much as compatible as Ethereum.
 5. With staking and governance as powerful as cosmos.
 
 
-[Geth](https://github.com/ethereum/go-ethereum/wiki/geth) implements two kinds of consensus engine: ethash(based on PoW) and [clique](https://ethereum-magicians.org/t/eip-225-clique-proof-of-authority-consensus-protocol/1853)(base on PoA). Ethash is not a fit option for BSC because BSC gives up PoW. Clique has smaller blocking time and is invulnerable to 51% attack while doing as little to the core data structure as possible to preserve existing Ethereum client compatibility. The shortcoming of PoA is centralization, and the lack of meaningful staking and governance capability on-chain.  On the other hand, the Beacon Chain is built on Cosmos which does have a deployed staking and governance mechanism. Thus here we try to propose a consensus engine that:
+[Geth](https://github.com/ethereum/go-ethereum/wiki/geth) implements two kinds of consensus engines: ethash(based on PoW) and [clique](https://ethereum-magicians.org/t/eip-225-clique-proof-of-authority-consensus-protocol/1853)(based on PoA). Ethash is not a fit option for BSC because BSC gives up PoW. Clique has a shorter blocking time and is invulnerable to 51% attack while doing as little to the core data structure as possible to preserve existing Ethereum client compatibility. The shortcoming of PoA is centralization, and the lack of meaningful staking and governance capability on-chain.  On the other hand, the Beacon Chain is built on Cosmos which does have a deployed staking and governance mechanism. Thus here we try to propose a consensus engine that:
 
 * Beacon Chain does the staking and governance parts for BSC.
 * ValidatorSet change, double sign slash of BSC is updated through interchain communication.
 * Consensus engine of BSC keeps as simple as clique.
 
-We investigated some popular implementations of PoA consensus and find out that [Bor](https://blog.matic.network/heimdall-and-bor-matic-validator-and-block-production-layers/) follows a similar design as above. We will borrow a few parts from Bor and propose a new consensus engine to achieve all these goals.
+We investigated some popular implementations of PoA consensus and found out that [Bor](https://blog.matic.network/heimdall-and-bor-matic-validator-and-block-production-layers/) follows a similar design as above. We will borrow a few parts from Bor and propose a new consensus engine to achieve all these goals.
 
 ## Infrastructure Components
 
-1. **Beacon Chain**. It is responsible for holding the staking function to determine validators of BSC through independent election, and the election workflow are performed via staking procedure.
+1. **Beacon Chain**. It is responsible for holding the staking function to determine validators of BSC through an independent election, and the election workflow are performed via staking procedure.
 2. **BSC validators**. Validators are responsible for validating transactions and generating blocks, ensuring the network’s security and the consistency of the ledger. In return, they receive rewards from the gas consumption of transactions.
 3. **Staking dApps on BSC(also named as system contract)**. There are several genesis contracts to help implement staking on BSC. Six classification groups of them:
     - **Light client contract**. It is a watcher of distributed consensus process implemented by contract that only validates the consensus algorithm of Beacon Chain.
@@ -132,20 +132,20 @@ Before introducing, we would like to clarify some terms:
 
 ### Key features
 
-#### Light client security
+#### Light Client Security
 Validators set changes take place at the (epoch+N/2) blocks. (N is the size of validatorset before epoch block). Considering the security of light client, we delay N/2 block to let validatorSet change take place.
 
 Every epoch block, validator will query the validatorset from contract and fill it in the extra_data field of block header. Full node will verify it against the validatorset in contract. A light client will use it as the validatorSet for next epoch blocks, however, it can not verify it against contract, it have to believe the signer of the epoch block. If the signer of the epoch block write a wrong extra_data, the light client may just go to a wrong chain. If we delay N/2 block to let validatorSet change take place, the wrong
 epoch block won’t get another N/2 subsequent blocks that signed by other validators, so that the light client are free of such attack.
 
-#### System transaction
+#### System Transaction
 The consensus engine may invoke system contracts, such transactions are called system transactions. System transactions is signed by the the validator who is producing the block. For the witness node, will generate the system transactions(without signature) according to its intrinsic logic and compare them with the system transactions in the block before applying them.
 
-#### Enforce backoff
+#### Enforce Backoff
 In Clique consensus protocol, out-of-turn validators have to wait a randomized amount of time before sealing the block. It is implemented in the client-side node software and works with the assumption that validators would run the canonical version.
 However, given that validators would be economically incentivized to seal blocks as soon as possible, it would be possible that the validators would run a modified version of the node software to ignore such a delay. To prevent validator rushing to seal a block, every out-turn validator will get a specified time slot to seal the block. Any block with a earlier blocking time produced by a out-turn validator will be discarded by other witness node.
 
-### How to Produce a new block
+### How to Produce a New Block
 
 #### Step 1: Prepare
 A validator node prepares the block header of next block.
@@ -155,7 +155,7 @@ A validator node prepares the block header of next block.
 *  Every epoch block, will store validators set message in `extraData` field of block header to facilitate the implement of light client.
 * The coinbase is the address of the validator
 
-#### Step2: FinalizeAndAssemble
+#### Step2: Finalize And Assemble
 
 * If the validator is not the in turn validator, will call liveness slash contract to slash the expected validator and generate a slashing transaction.
 * If there is gas-fee in the block, will distribute **1/16** to system reward contract, the rest go to validator contract.
@@ -168,7 +168,7 @@ The final step before a validator broadcast the new block.
 
 ### How to Validate/Replay a block
 
-#### Step1: VerifyHeader
+#### Step1: Verify Header
 Verify the block header when receiving a new block.
 
 * Verify the signature of the coinbase is in `extraData` of the `blockheader`

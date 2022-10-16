@@ -8,8 +8,7 @@ There are three ways for you to get synced with other peers in blockchain networ
 
 ## Fast Sync
 
-In fast sync, you need to download all the blocks from your peers and execute all the transaction in every block.
-The sync speed is about 20 blocks/s, which is slower than state sync.
+In fast sync, you need to download all the blocks from your peers and execute all the transactions in every block. The sync speed is about 20 blocks/sec, which is slower than state sync.
 
 Configuration is located in `$BNCHOME/config/config.toml`:
 
@@ -21,7 +20,7 @@ Configuration is located in `$BNCHOME/config/config.toml`:
 
 The default way to get newly joined Full Node syncing with other Full Node is `state sync`. Once your Full Node is synced to a snapshot, it will switch to `fast-sync` mode to catch up with its peers.
 
-State sync can help fullnode in same status with other peers within short time (according to our test, a one month ~800M DB snapshot in Beacon Chain  testnet can be synced in around 45 minutes). As explained in [BEP18](https://github.com/binance-chain/BEPs/blob/master/BEP18.md), State sync will get the application state of your full node to be up to date without downloading all of the blocks.The sync speed is faster than fast sync.
+State sync can help fullnode in same status with other peers within short time (according to our test, a one month ~800M DB snapshot in Beacon Chain  testnet can be synced in around 45 minutes). As explained in [BEP18](https://github.com/bnb-chain/BEPs/blob/master/BEP18.md), State sync will get the application state of your full node to be up to date without downloading all of the blocks.The sync speed is faster than fast sync.
 Now you do not need to allocate more memories to your full node for this feature to work.
 
 Configuration is located in `$BNCHOME/config/config.toml`:

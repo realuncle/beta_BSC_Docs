@@ -1,8 +1,7 @@
 ---
 sidebar_label: RPC
-sidebar_position: 2
-hide_table_of_contents: false
 ---
+
 # JSON-RPC Endpoint
 
 ## Available Resources
@@ -20,26 +19,7 @@ Recommend
 * https://bsc-dataseed.binance.org/
 * https://bsc-dataseed1.defibit.io/
 * https://bsc-dataseed1.ninicoin.io/
-
-
-Backups
-
-* https://bsc-dataseed2.defibit.io/
-* https://bsc-dataseed3.defibit.io/
-* https://bsc-dataseed4.defibit.io/
-* https://bsc-dataseed2.ninicoin.io/
-* https://bsc-dataseed3.ninicoin.io/
-* https://bsc-dataseed4.ninicoin.io/
-* https://bsc-dataseed1.binance.org/
-* https://bsc-dataseed2.binance.org/
-* https://bsc-dataseed3.binance.org/
-* https://bsc-dataseed4.binance.org/
-
-BSC Websocket Endpoints:
-
-*Note: provided by community with no quality promised, building your node should be always the long term goal*
-
-* wss://bsc-ws-node.nariox.org:443
+* https://bsc.nodereal.io
 
 
 BC RPC Endpoints:
@@ -79,24 +59,26 @@ BC RPC Endpoints:
 
 ### Rate limit
 
-The rate limit of BSC endpoint on Testnet and Mainnet is 10K/5min.
+The rate limit of BSC endpoint on Testnet and Mainnet is 8K/5min.
 
 ### 3rd Party Provider
 
-* [Moralis](https://moralis.io/): <https://moralis.io/speedy-nodes/>
+<!--* [Moralis](https://moralis.io/): <https://moralis.io/speedy-nodes/>-->
 
-* ANKR: <https://app.ankr.com/api>
+* [ANKR](https://app.ankr.com/api): <https://app.ankr.com/api>
 
 * [Chainstack](https://chainstack.com/): <https://chainstack.com/build-better-with-binance-smart-chain/>
 
 * [GetBlock.io](https://getblock.io/): <https://getblock.io/nodes/bsc>
 
-* QuickNode : <https://quicknode.com>
+* [QuickNode](https://quicknode.com) : <https://quicknode.com>
 
-* [NodeReal](https://nodereal.io/): <https://binance.nodereal.io>
+* [NodeReal](https://nodereal.io/): <https://docs.nodereal.io/nodereal/meganode/introduction>
+  
+* [BlockVision](https://docs.blockvision.org/blockvision/): <https://docs.blockvision.org/blockvision/chain-apis/bnb-chain-api>
 
 
-## Start
+## Start HTTP JSON-RPC
 
 You can start the HTTP JSON-RPC with the --rpc flag
 ```bash

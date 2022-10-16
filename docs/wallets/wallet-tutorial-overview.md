@@ -4,11 +4,11 @@ hide_table_of_contents: false
 ---
 
 # Tutorials on Using Third-Party Wallets on BNB Smart Chain
-BNB Smart Chain offers an extensive support of third-party wallets that can be used for sending/receiving/buying/exchanging/staking BNB Tokens. Below we provide a list of the most popular wallets.
+BNB Smart Chain offers extensive support of third-party wallets that can be used for sending/receiving/buying/exchanging/staking BNB Tokens. Below we provide a list of the most popular wallets.
 
 | Wallet | Tutorial Link |
 |--------------|---------------|
-| BNB Chain Extension Wallet| [How to use Binance Extension Wallet with BNB Smart Chain](../binance.md) |
+| Binance Extension Wallet| [How to use Binance Extension Wallet with BNB Smart Chain](../binance.md) |
 | Staking with Binance Extension Wallet | [How to Stake BNB Tokens using Binance Extension Wallet](../wallet/staking.md)    
 | Metamask| [How to use Metamask with BNB Smart Chain](../wallet/metamask.md)|
 | Trust Wallet | [How to use Trust Wallet with BNB Smart Chain](../wallet/trustwallet.md) |

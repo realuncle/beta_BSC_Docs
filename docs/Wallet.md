@@ -6,7 +6,7 @@ hide_table_of_contents: false
 # Wallet Guide
 
 ## What is a Wallet?
-A crypto wallet is a device or program used for transfer and storage of cryptocurrency. Crypto wallets can be of ifferent types, such as paper wallets, hardware wallets, and software wallets. There are also several smartphone mobile apps and computer programs that provide a user-friendly way to create and manage wallets. Along with crytocurreny, crypto wallets store a collection of crypto keys that are used for sending, receiving, and taracking ownership of cryptocurrencies.
+A crypto wallet is a device or program used for transfer and storage of cryptocurrency. Crypto wallets can be of different types, such as paper wallets, hardware wallets, and software wallets. There are also several smartphone mobile apps and computer programs that provide a user-friendly way to create and manage wallets. Along with crytocurreny, crypto wallets store a collection of crypto keys that are used for sending, receiving, and taracking ownership of cryptocurrencies.
 
 A keypair is a cryptographically-derived securely generated private and public keys. A private key and its corresponding public key are together known as a keypair. A wallet contains a collection of one or more keypairs and provides some means to interact with them. The security of any crypto wallet depends upon how the private key is stored.
 
@@ -27,7 +27,7 @@ If you want to be able to receive BNB and other supported tokens on the Binance 
 | 1    | Binance Extension Wallet | <https://binance-wallet.gitbook.io/binance-chain-wallet/> | Yes  |
 | 2    | [Trust Wallet](wallet/trustwallet.md) | <https://trustwallet.com/> | Yes   |
 |3     | [Math Wallet](wallet/math.md)|<https://mathwallet.org/en-us/>| Yes  |
-|4s     |  [SafePal](https://blog.safepal.io/binance-smart-chain-x-safepal/)|  <https://safepal.io/> | No  |
+|4     |  [SafePal](https://blog.safepal.io/binance-smart-chain-x-safepal/)|  <https://safepal.io/> | No  |
 |5     |[TokenPocket](https://tokenpocket-gm.medium.com/defi-with-tokenpocket-how-to-use-binance-smart-chain-swap-with-tokenpocket-e76d6cd7986)|<https://www.tokenpocket.pro/> |  No  |
 |6 | [Arkane](wallet/arkane.md)|<https://arkane.network/>|No|
 |7|[MetaMask](wallet/metamask.md)|<https://metamask.zendesk.com/hc/en-us>|No|

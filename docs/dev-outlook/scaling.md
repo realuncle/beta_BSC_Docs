@@ -3,6 +3,8 @@ sidebar_label: Scaling
 sidebar_position: 2
 ---
 
+# Scaling 
+
 ## BSC Throughput Boost
 
 Though many have challenged that BSC chose to scale up the capacity by shorter block time and larger block gas limit. There is strong faith that there is still room to improve the capacity of the current PoSA based BSC.
@@ -14,7 +16,7 @@ Based on the past research and investigation, storage has been commonly consider
 ## Erigon Based BSC Client or Another Storage Model
 [Erigon](https://github.com/ledgerwatch/erigon), a.k.a the previous “turbo-geth”, has been striving hard to improve the storage system of Ethereum/Geth in the past 3 years and now blossomed into beta status. Its new storage model with the new database, MPT generation methodology and staged sync has been proven to run much more efficiently than Geth for the large storage. Creating a BSC client based on Erigon will certainly improve the efficiency of the BSC archive node by reducing the storage size and improving the sync time.
 
-[Ankr is already contributing to the task](https://github.com/binance-chain/bsc-erigon). The full node binary is ready to run while the validator mode is being worked on.
+[Ankr is already contributing to the task](https://github.com/bnb-chain/bsc-erigon). The full node binary is ready to run while the validator mode is being worked on.
 
 Besides the instant benefits, the new storage model of Erigon may also set a better cornerstone for the other storage related optimizations.
 
@@ -25,7 +27,7 @@ For high performance computing, it is almost impossible to only rely on one node
 
 Running different functions of a blockchain client on different processes or machines are not new. Erigon proposes to run the RPC function in a standalone process on the same or different machine. The Merge of ETH 2.0 will also decompose the consensus and execution layers onto different client softwares.
 
-A typical blockchain client comprises many functionalities, P2P networking, consensus, RPC service, execution layer etc. Even zooming in these parts, e.g. the execution layer, is composed of many steps, such as the computing of transactions, the state persistence and the generation of different MPT(Merkle Patricia Trie) roots. Decoupling the functions onto different processes and machines can take advantage of the better computing and storage capacity. Some community members have started [some trials](https://github.com/binance-chain/bsc/pull/640) 1. However, distributing the node also poses great challenges, especially on synchronization between the distributed sub-nodes without losing the blockchain network security, i.e. the full node operators can easily run the suite of processes to keep the network running with the same level of security but much more capacity.
+A typical blockchain client comprises many functionalities, P2P networking, consensus, RPC service, execution layer etc. Even zooming in these parts, e.g. the execution layer, is composed of many steps, such as the computing of transactions, the state persistence and the generation of different MPT(Merkle Patricia Trie) roots. Decoupling the functions onto different processes and machines can take advantage of the better computing and storage capacity. Some community members have started [some trials](https://github.com/binance-chain/bsc/pull/640). However, distributing the node also poses great challenges, especially on synchronization between the distributed sub-nodes without losing the blockchain network security, i.e. the full node operators can easily run the suite of processes to keep the network running with the same level of security but much more capacity.
 
 A straightforward approach may be to arrange the tasks in a “synchronized, distributed, assembly line” (SDAL), due to the sequential characteristics of the blockchain. Some change may be required on the consensus logic to make this type optimization easier. This is also discussed in other blockchains that break sequencing, execution and storage (settlement) into different components.
 
